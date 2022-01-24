@@ -2,8 +2,13 @@
   "name": "socialv-ui-react",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.0"
+  },
   "dependencies": {
-    "@amityco/js-sdk": "^5.8.1",
+    "@amityco/js-sdk": "^5.9.0",
+    "@amityco/ts-sdk": "^0.0.1-beta.10",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullcalendar/bootstrap": "^5.9.0",
     "@fullcalendar/core": "^5.9.0",
@@ -17,9 +22,12 @@
     "bootstrap": "^5.1.0",
     "core-js": "^3.19.2",
     "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "express-favicon": "^2.0.1",
     "fullcalendar-interaction": "^5.3.3",
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.4",
     "react-dom": "^17.0.2",
@@ -42,7 +50,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
