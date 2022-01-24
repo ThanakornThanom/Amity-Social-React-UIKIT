@@ -15,7 +15,7 @@ import img10 from '../../assets/images/small/img-2.jpg'
 import loader from '../../assets/images/page-img/page-load-loader.gif'
 
 import { CommunityRepository, PostRepository } from '@amityco/js-sdk'
-
+import { CommentRepository } from '@amityco/js-sdk';
 import { CommunityCard } from './community'
 import { NewsFeeds } from './newsfeed'
 
@@ -35,6 +35,25 @@ const Index = () => {
         })
         getCommunity();
     }, [])
+
+    useEffect(() => {
+        const deleteComment = (async() => {
+           
+            const post = await PostRepository.postForId('c12f0c4a409e14a6b29149dae58f5cc8');
+            post.on('dataUpdated', models => {
+                console.log(JSON.stringify(models))
+              
+            });
+
+            
+            await CommentRepository.deleteComment('7A6FFED0-5AF3-40AF-A6AD-BAC3A9272CD8', false);
+           
+
+      
+        })
+        deleteComment();
+    }, [])
+
 
     useEffect(() => {
         const getNewsFeeds = (() => {
