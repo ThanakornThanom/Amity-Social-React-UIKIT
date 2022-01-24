@@ -1,30 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-//router
-import { BrowserRouter } from 'react-router-dom'
-//store
-
-import { Provider } from 'react-redux';
-//reducer
-import Store from './store'
-const dotenv = require('dotenv')
-dotenv.config()
-
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Provider store={Store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const express = require('express');
+const favicon = require('express-favicon');
+const path = require('path');
+const port = process.env.PORT || 8080;
+const app = express();
+app.use(favicon(__dirname + '/build/favicon.ico'));
+// the __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/ping', function (req, res) {
+    return res.send('pong');
+});
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+app.listen(port);
