@@ -19,11 +19,12 @@ import CatergoryGrid from '../views/dashboard/store/store-category-grid';
 import CatergoryList from '../views/dashboard/store/store-category-list';
 import StoreDetail from '../views/dashboard/store/store-detail';
 import StoreCheckout from '../views/dashboard/store/store-checkout';
-
+import LiveStream from '../views/dashboard/app/live_stream'
 const Layout1Router = () => {
     return (
         <>
             <Switch>
+                <Route path="/dashboards/app/live"                component={LiveStream}></Route>
                 <Route path="/dashboards/app/groups"                component={Groups}></Route>
                 <Route path="/dashboards/app/group-detail"          component={GroupDetail}></Route>
                 <Route path="/dashboards/app/friend-list"           component={FriendList} />
