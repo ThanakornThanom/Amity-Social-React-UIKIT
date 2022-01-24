@@ -13,7 +13,9 @@ import Simple from '../layouts/dashboard/simple'
 import ASCClient from '@amityco/js-sdk';
 
 const IndexRouters = () => {
+    
     useEffect(() => {
+        console.log("PLease check api key "+ process.env.REACT_APP_API_KEY);
         const ascClient = new ASCClient({ apiKey: process.env.REACT_APP_API_KEY });
         ascClient.registerSession({ userId: process.env.REACT_APP_USERID, displayName: process.env.REACT_APP_DISPLAYNAME })
     }, [])
